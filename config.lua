@@ -1,7 +1,7 @@
 Config = {}
 
 Config.Settings = {
-    Permissions = true, -- if set to true only "allowed" user will be able to use the command
+    Permissions = false, -- if set to true only "allowed" user will be able to use the command
     Allowed = { -- users allowed to use commands
         'discord:123456789', -- your discord id -- https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
         'discord:123456789', -- your discord id -- https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
