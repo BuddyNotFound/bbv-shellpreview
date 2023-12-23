@@ -100,21 +100,21 @@
 }
 
 .green {
-    background-color: rgba(0, 128, 0, 0.70);
+    background-color: #63b144;
 }
 
 .yellow {
-    background-color: rgba(255, 255, 55, 0.70);
+    background-color: #e9d738da;
 }
 
 .green:hover {
-    opacity: 0.5;
-    background-color: rgba(0, 128, 0, 0.70);
+    /* opacity: 0.5; */
+    background-color: #63b144b9;
 }
 
 .yellow:hover {
-    opacity: 0.5;
-    background-color: rgba(255, 255, 55, 0.70);
+    /* opacity: 0.5; */
+    background-color: #ffeb3ba9;
 }
 
 .button-container {
