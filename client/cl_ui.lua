@@ -35,11 +35,3 @@ end
 RegisterNUICallback('CloseShellUi', function()
     CloseUi()
 end)
-
-RegisterNUICallback('PreviewInformation', function(data)
-    print('Preview: '..data.shellid)
-end)
-
-RegisterNUICallback('InsideInformation', function(data)
-    print('Inside:'..data.shellid)
-end)

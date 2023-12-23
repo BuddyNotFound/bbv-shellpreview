@@ -22,11 +22,7 @@ function DespawnShells()
 end
 
 function Main:TeleportToInterior(x, y, z,data,object)
-    if type(data) == 'string' then 
-        offset = 0.5
-    else
-        offset = Config.Shells[data].hight
-    end
+    offset = 5
     CreateThread(function()
         Main:StartOrbitCam(vector3(0.0, 0.0, -3),object,5, 15)
         SetEntityCoords(Main.me(), x , y - 5, z + offset, 0, 0, 0, false)

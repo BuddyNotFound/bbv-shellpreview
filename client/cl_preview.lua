@@ -1,3 +1,17 @@
+RegisterNUICallback('PreviewInformation', function(data)
+    local shellspawn = Config.Settings.PreviewLocation
+    local oldpos = GetEntityCoords(Main.me())
+        -- Check if data is a string
+    previewmodel = data.shellid
+    local model = previewmodel
+    print(model .. ' !model')
+    Main:CreatePreview(shellspawn, exit, model, oldpos, data)
+end)
+
+-- RegisterNUICallback('InsideInformation', function(data)
+--     print('Inside:'..data.shellid)
+-- end)
+
 RegisterNetEvent('bbv-shellpreview:client', function(data)
     local shellspawn = Config.Settings.PreviewLocation
     local oldpos = GetEntityCoords(Main.me())

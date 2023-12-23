@@ -2,6 +2,7 @@ let Table = []
 let Opened = false
 
 function TriggerClasses(shells) {
+    console.log(JSON.stringify(shells))
     for (var i=0; i < shells.length; i++) {
         let elementId = shells[i].name
         const maxLength = 20;
@@ -22,10 +23,12 @@ function TriggerClasses(shells) {
 }
 
 function PreviewData(Prev) {
+    CloseUi()
     $.post(`https://${GetParentResourceName()}/PreviewInformation`, JSON.stringify({shellid:Prev}));
 }
 
 function GoInside(Go) {
+    CloseUi()
     $.post(`https://${GetParentResourceName()}/InsideInformation`, JSON.stringify({shellid:Go}));
 }
 

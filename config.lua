@@ -13,7 +13,7 @@ Config.Shells = {
 	{
 		name = 'shell_trailer',
         hight = 10, -- Preview Hight of the camera
-        url = 'https://cdn.discordapp.com/attachments/1054072664265859162/1188113553266315384/image.png?ex=659957f9&is=6586e2f9&hm=4e412e7ee4580899f9f676698cb95bbaacd36c3753ddbbbf7127e7025877a34c&',
+        url = 'https://cdn.discordapp.com/attachments/1054072664265859162/1188151859265933342/image.png?ex=65997ba6&is=658706a6&hm=d46615a30f12cca644feb15dc87ea55aceb12067849eab9c36026317a6f66b52&',
 	},
     {
         name = 'standardmotel_shell',
