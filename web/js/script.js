@@ -14,7 +14,7 @@ function TriggerClasses(shells) {
                 <button class="neen-button green" onclick="PreviewData('${elementId}')">Preview</button>
                 <button class="neen-button yellow" onclick="GoInside('${elementId}')">Go inside</button>
             </div>
-            <div class="neen-shell-name">${ShellLabel}</div>
+            <div class="neen-shell-name selectEnable">${ShellLabel}</div>
         </div>
         `;
         Table.push(string)
