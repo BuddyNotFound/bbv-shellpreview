@@ -1,0 +1,169 @@
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1114199f;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(58, 68, 80);
+}
+
+/* Credit */
+.neen-credits {
+    display: flex;
+    position: absolute;
+    top: 0.3vh;
+    left: 47vh;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9vw;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CloseButt */
+.neen-closebutton {
+    position: absolute;
+    top: 0.8vh;
+    right: 0.5vh;
+    color: gray;
+    text-align: center;
+}
+
+.neen-closebutton:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.neen-link {
+    color: rgba(44, 184, 209, 0.623);
+    text-decoration: none;
+    padding-left: 5px;
+    outline: none;
+}
+
+/* Boxes and stuff */
+.neen-main-container {
+    display: none;
+    position: absolute;
+    top: 15vh;
+    left: 26.4vh;
+    width: 120vh;
+    height: 70vh;
+    background-color: rgb(50, 62, 78);
+    border: 0.8vh solid rgba(22, 27, 34, 0.664);
+    border-radius: 2px;
+    overflow-y: auto;
+}
+
+.neen-boxes-flex {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    top: 3vh;
+    left: 3vh;
+}
+
+.neen-boxes {
+    position: relative;
+    height: 22vh;
+    width: 36.6vh;
+    background-color: rgba(22, 27, 34, 0.664);
+    margin-right: 2vh;
+    margin-bottom: 2vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.neen-boxes img {
+    margin-top: -2vh;
+    width: 100%;
+    height: 100%;
+    max-height: 86%;
+    object-fit: cover;
+    margin-bottom: 1vh;
+}
+
+.neen-button {
+    margin-top: 1vh;
+    padding: 0.71vh 1vh;
+    color: white;
+    cursor: pointer;
+    flex: 1;
+    border: 0.25vh solid rgba(0, 0, 0, 0.664);
+}
+
+.green {
+    background-color: rgba(0, 128, 0, 0.70);
+}
+
+.yellow {
+    background-color: rgba(255, 255, 55, 0.70);
+}
+
+.green:hover {
+    opacity: 0.5;
+    background-color: rgba(0, 128, 0, 0.70);
+}
+
+.yellow:hover {
+    opacity: 0.5;
+    background-color: rgba(255, 255, 55, 0.70);
+}
+
+.button-container {
+    position: absolute;
+    bottom:0vh;
+    right:0vh;
+    left:0vh;
+    margin: 1vh, 0.3vh;
+    display: flex;
+}
+
+.neen-button:first-child {
+    margin-right: 0.5vh;
+}
+
+.neen-button:last-child {
+    margin-left: 0.5vh;
+}
+
+/* Image previewer */
+
+.neen-image-previewer {
+    display: none;
+    position: fixed;
+    top: 50.5%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+    width: 120vh;
+    height: 71vh;
+    overflow: hidden;
+}
+
+.neen-image-previewer .modal-body {
+    width: 100%;
+    height: 100%;
+}
+
+.neen-image-previewer .modal-body img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Select disable */
+
+.selectDisable {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}

@@ -1,5 +1,5 @@
 RegisterNetEvent('bbv-shellpreview:client', function(data)
-    local shellspawn = Config.Shells.PreviewLocation
+    local shellspawn = Config.Settings.PreviewLocation
     local oldpos = GetEntityCoords(Main.me())
         -- Check if data is a string
     if type(data) == 'string' then 
