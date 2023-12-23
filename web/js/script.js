@@ -4,6 +4,8 @@ let Opened = false
 function TriggerClasses(shells) {
     for (var i=0; i < shells.length; i++) {
         let elementId = shells[i].name
+        const maxLength = 20;
+        const ShellLabel = shells[i].name.length > maxLength ? shells[i].name.substring(0, maxLength) + '': shells[i].name;
         let string = `
         <div id="${elementId}" class="neen-boxes selectDisable">
         <img src="${shells[i].url}" data-toggle="modal" data-target="#imageModal" data-imgurl="${shells[i].url}">
@@ -11,6 +13,7 @@ function TriggerClasses(shells) {
                 <button class="neen-button green" onclick="PreviewData('${elementId}')">Preview</button>
                 <button class="neen-button yellow" onclick="GoInside('${elementId}')">Go inside</button>
             </div>
+            <div class="neen-shell-name">${ShellLabel}</div>
         </div>
         `;
         Table.push(string)

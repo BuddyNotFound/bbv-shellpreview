@@ -16,10 +16,11 @@
     display: flex;
     position: absolute;
     top: 0.3vh;
-    left: 47vh;
+    left: 52.3vh;
     color: white;
     font-weight: bold;
     font-size: 0.9vw;
+    font-family: Cursive;
     justify-content: center;
     align-items: center;
 }
@@ -39,7 +40,7 @@
 }
 
 .neen-link {
-    color: rgba(44, 184, 209, 0.623);
+    color: #2dbd1a;
     text-decoration: none;
     padding-left: 5px;
     outline: none;
@@ -79,6 +80,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 1px 16px rgba(0, 0, 0, 0.9);
 }
 
 .neen-boxes img {
@@ -94,6 +96,9 @@
     margin-top: 1vh;
     padding: 0.71vh 1vh;
     color: white;
+    font-weight: bold;
+    font-size: 0.75vw;
+    font-family: Cursive;
     cursor: pointer;
     flex: 1;
     border: 0.25vh solid rgba(0, 0, 0, 0.664);
@@ -166,4 +171,14 @@
     -moz-user-select: none;
     -o-user-select: none;
     user-select: none;
+}
+
+.neen-shell-name {
+    position: absolute;
+    top: 15vh;
+    font-size: 0.96vw;
+    font-family: Sans-serif;
+    color: white;
+    direction: rtl;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0);
 }
