@@ -7,7 +7,6 @@ lua54 'yes'
 client_scripts {
     'client/cl_misc.lua',
     'client/cl_preview.lua',
-    'client/cl_orbitcam.lua',
     'client/cl_ui.lua',
 }
 

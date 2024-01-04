@@ -1,43 +1,10 @@
-RegisterCommand('shell', function(source,args)
-    local type = args[1]
-    if type == "preview" then 
-        for k,v in pairs(Config.Settings.Allowed) do
-            local src = source
-            local myid = Identifiers(src)
-            if v == myid.discord or Config.Settings.Permissions == false then 
-                TriggerClientEvent('bbv-shellpreview:client',src, tonumber(args[2]))
-                return
-            end
-        end
-    end
-    if type == "name" then 
-        for k,v in pairs(Config.Settings.Allowed) do
-            local src = source
-            local myid = Identifiers(src)
-            if v == myid.discord or Config.Settings.Permissions == false then 
-                TriggerClientEvent('bbv-shellpreview:client',src, args[2])
-                return
-            end
-        end
-    end
-    if type == "list" then 
-        for k,v in pairs(Config.Settings.Allowed) do
-            local src = source
-            local myid = Identifiers(src)
-            if v == myid.discord or Config.Settings.Permissions == false then 
-                TriggerClientEvent('bbv-shellpreview:list',src)
-                return
-            end
-        end
-    end
-    if type == "help" then 
-        for k,v in pairs(Config.Settings.Allowed) do
-            local src = source
-            local myid = Identifiers(src)
-            if v == myid.discord or Config.Settings.Permissions == false then 
-                TriggerClientEvent('bbv-shellpreview:help',src)
-                return
-            end
+RegisterCommand(Config.Settings.Command, function(source)
+    for k,v in pairs(Config.Settings.Allowed) do
+        local src = source
+        local myid = Identifiers(src)
+        if v == myid.discord or Config.Settings.Permissions == false then 
+            TriggerClientEvent('bbv-shellpreview',src)
+            return
         end
     end
 end)

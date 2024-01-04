@@ -2,7 +2,6 @@ let Table = []
 let Opened = false
 
 function TriggerClasses(shells) {
-    console.log(JSON.stringify(shells))
     for (var i=0; i < shells.length; i++) {
         let elementId = shells[i].name
         const maxLength = 20;
@@ -12,7 +11,7 @@ function TriggerClasses(shells) {
         <img src="${shells[i].url}" data-toggle="modal" data-target="#imageModal" data-imgurl="${shells[i].url}">
             <div class="button-container">
                 <button class="neen-button green" onclick="PreviewData('${elementId}')">Preview</button>
-                <button class="neen-button yellow" onclick="GoInside('${elementId}')">Go inside</button>
+                <button class="neen-button yellow" onclick="GoInside('${elementId}', ${i})">Go inside</button>
             </div>
             <div class="neen-shell-name selectEnable">${ShellLabel}</div>
         </div>
@@ -27,9 +26,9 @@ function PreviewData(Prev) {
     $.post(`https://${GetParentResourceName()}/PreviewInformation`, JSON.stringify({shellid:Prev}));
 }
 
-function GoInside(Go) {
+function GoInside(Go, index) {
     CloseUi()
-    $.post(`https://${GetParentResourceName()}/InsideInformation`, JSON.stringify({shellid:Go}));
+    $.post(`https://${GetParentResourceName()}/InsideInformation`, JSON.stringify({ shellid: Go, index: index }));
 }
 
 function CloseUi() {

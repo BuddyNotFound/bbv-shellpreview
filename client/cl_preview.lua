@@ -1,21 +1,23 @@
 RegisterNUICallback('PreviewInformation', function(data)
     local shellspawn = Config.Settings.PreviewLocation
     local oldpos = GetEntityCoords(Main.me())
-        -- Check if data is a string
     previewmodel = data.shellid
     local model = previewmodel
-    print(model .. ' !model')
     Main:CreatePreview(shellspawn, exit, model, oldpos, data)
 end)
 
--- RegisterNUICallback('InsideInformation', function(data)
---     print('Inside:'..data.shellid)
--- end)
+RegisterNUICallback('InsideInformation', function(data)
+    local shellspawn = Config.Settings.PreviewLocation
+    local oldpos = GetEntityCoords(Main.me())
+    previewmodel = data.shellid
+    local model = previewmodel
+    local id = data.index
+    Main:CreatePreview(shellspawn, exit, model, oldpos, data, true, id)
+end)
 
 RegisterNetEvent('bbv-shellpreview:client', function(data)
     local shellspawn = Config.Settings.PreviewLocation
     local oldpos = GetEntityCoords(Main.me())
-        -- Check if data is a string
     if type(data) == 'string' then 
         previewmodel = data
     else
@@ -25,18 +27,7 @@ RegisterNetEvent('bbv-shellpreview:client', function(data)
     Main:CreatePreview(shellspawn, exit, model, oldpos, data)
 end)
 
-RegisterNetEvent('bbv-shellpreview:list', function()
-    Main:Notify('There are total of '.. #Config.Shells .. " shells to preview")
-end)
-
-RegisterNetEvent('bbv-shellpreview:help', function()
-    Main:Notify("/shell preview [1-99] (Preview preconfigured shells)")
-    Main:Notify("/shell name [model] (Preview shell using its model name)")
-    Main:Notify("/shell list (shows amount of preconfigured shells)")
-    Main:Notify("/shell help (shows this menu)")
-end)
-
-function Main:CreatePreview(spawn, exitXYZH, model, oldpos, type)
+function Main:CreatePreview(spawn, exitXYZH, model, oldpos, type, inside, id)
     local objects = {}
     local POIOffsets = {}
     POIOffsets.exit = exitXYZH
@@ -53,10 +44,12 @@ function Main:CreatePreview(spawn, exitXYZH, model, oldpos, type)
         Wait(1000)
     end
     self.Shells[#self.Shells + 1] = CreateObject(model, spawn.x, spawn.y, spawn.z, false, false, false)
-    SetFollowPedCamViewMode(4)
+    if not inside then
+        SetFollowPedCamViewMode(4)
+        Main.preview = true
+    end
     FreezeEntityPosition(self.Shells[#self.Shells], true)
-    self:TeleportToInterior(spawn.x, spawn.y, spawn.z, type, self.Shells[#self.Shells])
-    Main.preview = true
+    self:TeleportToInterior(spawn.x, spawn.y, spawn.z, type, self.Shells[#self.Shells],inside,id)
     TriggerEvent('bbv-shellpreview:exit',self.Shells[#self.Shells],oldpos)
 end
 

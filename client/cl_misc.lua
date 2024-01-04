@@ -7,7 +7,6 @@ AddEventHandler('onResourceStop', function(resourceName)
     if (GetCurrentResourceName() ~= resourceName) then
       return
     end
-    DoScreenFadeIn(1)
     FreezeEntityPosition(Main.me(),false)
     SetEntityVisible(Main.me(), true)
     DespawnShells()
@@ -21,13 +20,23 @@ function DespawnShells()
     end
 end
 
-function Main:TeleportToInterior(x, y, z,data,object)
+function Main:TeleportToInterior(x, y, z,data,object,inside,id)
     offset = 5
     CreateThread(function()
+        if not inside then 
         Main:StartOrbitCam(vector3(0.0, 0.0, -3),object,5, 15)
-        SetEntityCoords(Main.me(), x , y - 5, z + offset, 0, 0, 0, false)
         FreezeEntityPosition(Main.me(),true)
-        SetEntityVisible(Main.me(), false)
+        end
+        if not inside then
+            SetEntityCoords(Main.me(), x , y, z + 1, 0, 0, 0, false)
+            SetEntityVisible(Main.me(), false)
+        else
+            if Config.debug then 
+                SetEntityCoords(Main.me(), x , y, z + 1, 0, 0, 0, false)
+            else
+                SetEntityCoords(Main.me(),Config.Shells[id + 1].inside)
+            end
+        end
         Wait(100)
 
         DoScreenFadeIn(1000)
@@ -54,9 +63,12 @@ function Main:Notify(txt)
     DrawNotification(0,1) 
 end
 
+-- Orbit cam by Kiminaze edited to work on shells.
+-- https://github.com/Kiminaze/OrbitCam
+
 usePreciseMethod = false
 minRadius = 1.0
-maxRadius = 15.0
+maxRadius = 200.0
 radiusStepLength = 0.5
 transitionSpeed = 1000
 mouseSpeed = 8.0

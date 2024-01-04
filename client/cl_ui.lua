@@ -1,10 +1,11 @@
+-- UI BUILD BY NEENGAME
 CreateThread(function()
     Wait(100)
     LoadConfigShells()
 end)
 
-RegisterCommand('openui', function(src, args)
-    ShellPreviewer(args[1])
+RegisterNetEvent('bbv-shellpreview',function()
+    ShellPreviewer()
 end)
 
 --// Functions \\--
