@@ -68,7 +68,7 @@ end
 
 usePreciseMethod = false
 minRadius = 1.0
-maxRadius = 200.0
+maxRadius = 25.0
 radiusStepLength = 0.5
 transitionSpeed = 1000
 mouseSpeed = 8.0
@@ -156,7 +156,7 @@ function Main:ProcessNewPosition()
     angleY = math.max(math.min(angleY, 89.0), -89.0)
 
     currentRadius = currentRadius + (GetDisabledControlNormal(0, 16) - GetDisabledControlNormal(0, 17)) * radiusStepLength
-    currentRadius = math.max(math.min(currentRadius, maxRadius), minRadius)
+    currentRadius = math.max(math.min(currentRadius, 35), minRadius)
 
     if (trackedEntity and DoesEntityExist(trackedEntity)) then
         camFocusPoint = GetEntityCoords(trackedEntity) + entityOffset

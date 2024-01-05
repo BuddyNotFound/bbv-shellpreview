@@ -38,7 +38,6 @@ function Main:CreatePreview(spawn, exitXYZH, model, oldpos, type, inside, id)
     while not IsScreenFadedOut() do
         Wait(10)
     end
-    print(model)
     RequestModel(model)
     while not HasModelLoaded(model) do
         Wait(1000)
@@ -46,8 +45,8 @@ function Main:CreatePreview(spawn, exitXYZH, model, oldpos, type, inside, id)
     self.Shells[#self.Shells + 1] = CreateObject(model, spawn.x, spawn.y, spawn.z, false, false, false)
     if not inside then
         SetFollowPedCamViewMode(4)
-        Main.preview = true
     end
+    Main.preview = true
     FreezeEntityPosition(self.Shells[#self.Shells], true)
     self:TeleportToInterior(spawn.x, spawn.y, spawn.z, type, self.Shells[#self.Shells],inside,id)
     TriggerEvent('bbv-shellpreview:exit',self.Shells[#self.Shells],oldpos)
@@ -56,7 +55,6 @@ end
 RegisterNetEvent('bbv-shellpreview:exit',function(delshell,tppos)
     while Main.preview do 
         Wait(0)
-        NetworkOverrideClockTime(23, 00, 0)
         Main:DisplayText("Press [F] to exit preview")
         if IsControlJustReleased(0,23) then
             Main:EndOrbitCam()
