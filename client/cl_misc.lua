@@ -168,27 +168,8 @@ function Main:ProcessNewPosition()
     local newPos = camFocusPoint + offset
 
     local ignoreEnt = trackedEntity or PlayerPedId()
-    local rayCastResults = {}
-    if (usePreciseMethod) then
-        local right, forward, up, currentCamPos = GetCamMatrix(cam)
-        local vertOffset, horiOffset = right * 0.125, up * 0.07
-        table.insert(rayCastResults, { Main:RayCast(camFocusPoint, newPos + vertOffset + horiOffset, ignoreEnt) })
-        table.insert(rayCastResults, { Main:RayCast(camFocusPoint, newPos + vertOffset - horiOffset, ignoreEnt) })
-        table.insert(rayCastResults, { Main:RayCast(camFocusPoint, newPos - vertOffset - horiOffset, ignoreEnt) })
-        table.insert(rayCastResults, { Main:RayCast(camFocusPoint, newPos - vertOffset + horiOffset, ignoreEnt) })
-    else
-        table.insert(rayCastResults, { Main:RayCast(camFocusPoint, newPos, ignoreEnt) })
-    end
 
     local radius = currentRadius
-    for i, rayCastResult in ipairs(rayCastResults) do
-        if (rayCastResult[1]) then
-            local dist = #(camFocusPoint - rayCastResult[2])
-            if (dist < radius) then
-                radius = dist
-            end
-        end
-    end
 
     offset = offset * (radius / currentRadius)
 
