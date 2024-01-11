@@ -1,6 +1,6 @@
 -- UI BUILD BY NEENGAME
 CreateThread(function()
-    Wait(100)
+    Wait(1000)
     LoadConfigShells()
 end)
 
