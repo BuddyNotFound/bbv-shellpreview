@@ -1,9 +1,9 @@
-RegisterCommand('shellpreview', function(source,args)
+RegisterCommand(Config.Settings.Command, function(source)
     for k,v in pairs(Config.Settings.Allowed) do
         local src = source
         local myid = Identifiers(src)
         if v == myid.discord or Config.Settings.Permissions == false then 
-            TriggerClientEvent('bbv-shellpreview:client',src, tonumber(args[1]))
+            TriggerClientEvent('bbv-shellpreview',src)
             return
         end
     end
