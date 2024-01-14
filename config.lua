@@ -3,6 +3,7 @@ Config.debug = false
 
 Config.Settings = {
     Command = "shells",
+    CommandShow = "shellshow",
     Permissions = false, -- if set to true only "allowed" user will be able to use the command
     Allowed = { -- users allowed to use commands
         'discord:123456789', -- your discord id -- https://support.discord.com/hc/en-us/articles/206346498-Where-can-I-find-my-User-Server-Message-ID-
