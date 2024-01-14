@@ -9,6 +9,17 @@ RegisterCommand(Config.Settings.Command, function(source)
     end
 end)
 
+RegisterCommand(Config.Settings.CommandShow, function(source,args)
+    for k,v in pairs(Config.Settings.Allowed) do
+        local src = source
+        local myid = Identifiers(src)
+        if v == myid.discord or Config.Settings.Permissions == false then 
+            TriggerClientEvent('bbv-shellpreview',args[1])
+            return
+        end
+    end
+end)
+
 function Identifiers(src)
     local identifiers = {
         steam = "",
